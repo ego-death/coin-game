@@ -33,6 +33,13 @@ const server = http.createServer((req, res) => {
                 res.end();
         });
     }
+    else if(page == '/img/tails.png'){
+        fs.readFile('img/tails.png', (err, data) => {
+            res.writeHead(200, {'Content-Type': 'image/png'});
+            res.write(data);
+            res.end();
+    });
+    }
     else if(page == '/api'){
         res.writeHead(200, {'Content-Type': 'application/json'});
         let coin = Math.round(Math.random())?'heads':'tails';
